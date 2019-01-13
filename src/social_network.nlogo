@@ -2,8 +2,8 @@
 ;;; Extensions ;;;
 ;;;;;;;;;;;;;;;;;;
 extensions [
-  palette
-  table
+    palette
+    table
 ]
 
 ;;;;;;;;;;;;;;;
@@ -19,8 +19,8 @@ Globals[
 breed [users user]
 
 users-own [
-  influence
-  activity-rate
+    influence
+    activity-rate
 ]
 
 
@@ -31,19 +31,34 @@ users-own [
 to spawn-users [_number]
     create-users _number[
         ;; --- General
-        if (count users > 0)[
-          let node (one-of other users)
-          create-link-to node
-        ]
-
-        ;; --- Graphical
         set influence 0
         set activity-rate (random-float-range 0.25 1)
 
+        ;; --- Graphical
         update-appearance
-
         set shape "circle"
         setxy random-xcor random-ycor
+    ]
+end
+
+to initialize-follow
+    let continue true
+
+    while [continue][
+        let #Links (count my-links)
+
+        ifelse (#Links = 0)[
+            let node (one-of other users)
+            create-link-to node
+        ][
+            let proba (1 / #Links)
+            ifelse (flip-coin proba)[
+                let node (one-of other users)
+                create-link-to node
+            ][
+                set continue false
+            ]
+        ]
     ]
 end
 
@@ -93,12 +108,16 @@ end
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 to setup
-  clear-all
+    clear-all
 
-  setup-globals
-  spawn-users maximum-users
+    setup-globals
 
-  reset-ticks
+    spawn-users maximum-users
+    ask users[
+        initialize-follow
+    ]
+
+    reset-ticks
 end
 
 to setup-globals
