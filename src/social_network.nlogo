@@ -62,6 +62,19 @@ to initialize-follow
     ]
 end
 
+to random-follow
+    let _follow (out-link-neighbors)
+    let new_follow one-of (other users) with [ not member? self _follow]
+    create-link-to new_follow
+end
+
+to random-unfollow
+    let in-links my-in-links
+    if (count in-links > 0)[
+        ask (one-of in-links) [die]
+    ]
+end
+
 ;; recursive version
 to compute-influence
 
@@ -132,7 +145,17 @@ to go
   ask users [
     compute-influence
     update-appearance
-    if (flip-coin activity-rate)[
+
+    if(use-dynamism?)[
+        if (flip-coin activity-rate)[
+        ]
+
+        if (flip-coin proba-unfollow)[
+            random-unfollow
+        ]
+        if (flip-coin proba-follow)[
+            random-follow
+        ]
     ]
   ]
   tick
@@ -450,6 +473,39 @@ Size-High
 1
 0
 Number
+
+INPUTBOX
+548
+36
+703
+96
+proba-follow
+0.01
+1
+0
+Number
+
+INPUTBOX
+548
+98
+703
+158
+proba-unfollow
+0.02
+1
+0
+Number
+
+SWITCH
+569
+171
+709
+204
+use-dynamism?
+use-dynamism?
+0
+1
+-1000
 
 @#$#@#$#@
 ## WHAT IS IT?
