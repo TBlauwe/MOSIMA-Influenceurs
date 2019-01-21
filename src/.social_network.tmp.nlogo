@@ -205,7 +205,7 @@ to layout
     ;; the more turtles we have to fit into the same amount of space,
     ;; the smaller the inputs to layout-spring we'll need to use
     ;; let factor sqrt count turtles
-    let factor
+    let factor 1
     ;; numbers here are arbitrarily chosen for pleasing appearance
     layout-spring turtles links (1 / factor) (7 / factor) (Size-High / factor)
     display  ;; for smooth animation
@@ -397,10 +397,10 @@ NIL
 0
 
 INPUTBOX
-566
-278
-721
-338
+403
+79
+558
+139
 maximum-users
 100.0
 1

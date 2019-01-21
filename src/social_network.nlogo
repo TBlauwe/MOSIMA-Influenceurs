@@ -252,10 +252,10 @@ end
 ; See Info tab for full copyright and license.
 @#$#@#$#@
 GRAPHICS-WINDOW
-752
-10
-1229
-488
+98
+239
+575
+717
 -1
 -1
 3.88
@@ -279,10 +279,10 @@ ticks
 60.0
 
 BUTTON
-6
-25
-72
-58
+145
+10
+211
+43
 NIL
 setup
 NIL
@@ -296,10 +296,10 @@ NIL
 1
 
 BUTTON
-156
-25
-233
-58
+295
+10
+372
+43
 NIL
 go
 T
@@ -313,10 +313,10 @@ NIL
 0
 
 BUTTON
-72
-25
-157
-58
+211
+10
+296
+43
 go-once
 go
 NIL
@@ -330,10 +330,10 @@ NIL
 0
 
 SWITCH
-242
-30
-388
-63
+381
+15
+527
+48
 plot?
 plot?
 0
@@ -341,10 +341,10 @@ plot?
 -1000
 
 SWITCH
-242
-64
-388
-97
+381
+49
+527
+82
 layout?
 layout?
 0
@@ -352,10 +352,10 @@ layout?
 -1000
 
 MONITOR
-403
-27
-482
-72
+448
+111
+527
+156
 # of nodes
 count turtles
 3
@@ -363,10 +363,10 @@ count turtles
 11
 
 BUTTON
-14
-71
-116
-104
+153
+56
+255
+89
 redo layout
 layout
 T
@@ -380,10 +380,10 @@ NIL
 0
 
 BUTTON
-116
-71
-226
-104
+255
+56
+365
+89
 resize nodes
 resize-nodes
 NIL
@@ -397,10 +397,10 @@ NIL
 0
 
 INPUTBOX
-566
-278
-721
-338
+402
+168
+557
+228
 maximum-users
 100.0
 1
@@ -408,10 +408,10 @@ maximum-users
 Number
 
 INPUTBOX
-11
-188
-166
-248
+112
+109
+267
+169
 Color-Low
 105.0
 1
@@ -419,10 +419,10 @@ Color-Low
 Color
 
 INPUTBOX
-12
-248
-167
-308
+113
+169
+268
+229
 Color-High
 15.0
 1
@@ -430,10 +430,10 @@ Color-High
 Color
 
 INPUTBOX
-166
-188
-277
-248
+267
+109
+378
+169
 Size-Low
 1.0
 1
@@ -441,10 +441,10 @@ Size-Low
 Number
 
 INPUTBOX
-166
-248
-276
-308
+267
+169
+377
+229
 Size-High
 3.0
 1
